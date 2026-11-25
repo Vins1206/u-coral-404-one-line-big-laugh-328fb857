@@ -7,7 +7,7 @@ Pure stdlib, deterministic: the same line on every run.
 
 import os
 
-LINE = "I asked AI to write my wedding vows; it married my fiancée instead and sent me the honeymoon photos from Bali."
+LINE = "I asked my grandmother for her secret recipe; she whispered: 'store-bought — add butter and lie.'"
 
 
 def main():
