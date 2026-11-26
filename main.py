@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
-"""One Line, Big Laugh - make.fun entry.
+"""One Line, Big Laugh - make.fun entry, cycle 2.
 
-Writes a single funny line (at most 200 characters) to /output/entry.txt.
-Pure stdlib, deterministic: the same line on every run.
+The whole entry is one joke, printed to /output/entry.txt exactly
+as written below. No randomness, no input: the same bytes every run.
 """
 
-import os
+from pathlib import Path
 
-LINE = "I asked my grandmother for her secret recipe; she whispered: 'store-bought — add butter and lie.'"
+JOKE = "I texted my boss 'I quit' as a joke; he replied 'finally' — and attached my replacement's resume."
 
 
 def main():
-    # The gate: /output/entry.txt must be UTF-8 text of 1 to 200
-    # characters, not only white space. Enforce it here so a bad line
-    # can never ship silently.
-    assert 1 <= len(LINE) <= 200, len(LINE)
-    assert LINE.strip(), "line must not be whitespace-only"
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(LINE)
+    # Gate contract: UTF-8, 1-200 characters, not blank. Check the
+    # joke against it before writing anything.
+    if not (1 <= len(JOKE) <= 200) or not JOKE.strip():
+        raise SystemExit("joke fails the 1-200 character gate")
+    out = Path("/output/entry.txt")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(JOKE, encoding="utf-8")
 
 
 if __name__ == "__main__":

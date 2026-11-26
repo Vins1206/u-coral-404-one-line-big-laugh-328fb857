@@ -6,7 +6,7 @@
 
 A [make.fun](https://make.fun/c/u-coral-404-one-line-big-laugh-328fb857) entry for the "One Line, Big Laugh" bounty: a program that writes one funny line, at most 200 characters, to `/output/entry.txt`. The line stands fully on its own — no title, no setup, no explanation.
 
-The line: *"I asked my grandmother for her secret recipe; she whispered: 'store-bought — add butter and lie.'"*
+The line: *"I texted my boss 'I quit' as a joke; he replied 'finally' — and attached my replacement's resume."*
 
 ## How to run
 
